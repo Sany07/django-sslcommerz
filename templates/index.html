@@ -56,6 +56,8 @@
             <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify.</p>
           </div>
           <div class="lg:w-1/2 md:w-2/3 mx-auto">
+            <form method="POST" action="{% url 'donationapp:donate' %}">
+            {% csrf_token %}
             <div class="flex flex-wrap -m-2">
               <div class="p-2 w-full">
                 <div class="relative">
@@ -67,6 +69,7 @@
                 <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Donate</button>
               </div>
             </div>
+          </form>
           </div>
         </div>
     </section>
