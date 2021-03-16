@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect 
+from django.shortcuts import render, redirect
+from django.http import HttpResponse 
 from django.views.generic import View, TemplateView, DetailView
-
+from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 
@@ -11,8 +12,9 @@ class IndexView(TemplateView):
     template_name = "index.html"
 
 def DonateView(request):
+    name = request.POST['name']
     amount = request.POST['amount']
-    return redirect(sslcommerz_payment_gateway(request, amount))
+    return redirect(sslcommerz_payment_gateway(request, name, amount))
 
 
 @method_decorator(csrf_exempt, name='dispatch')
@@ -23,23 +25,19 @@ class CheckoutSuccessView(View):
     
     def get(self, request, *args, **kwargs):
 
-        user = get_object_or_404(CustomUser, id=request.user.id)
-        transaction = Transaction.objects.filter(user = request.user.id).last()
-        print('transaction')
-        print(transaction)
-        print(request.user)
-        del self.request.session['cart_items'] #here deleting the total items on cart session 
-
-        return render(request, self.template_name,{'transaction':transaction})
+        # return render(request, self.template_name,{'transaction':transaction})
+        return HttpResponse('nothing to see')
 
     def post(self, request, *args, **kwargs):
 
         data = self.request.POST
-        user = get_object_or_404(CustomUser, id=data['value_a']) #value_a is a user instance
-        cart = get_object_or_404(Cart, id = data['value_b'] ) #value_b is a user cart instance
+
+        # user = get_object_or_404(CustomUser, id=data['value_a']) #value_a is a user instance
+        # cart = get_object_or_404(Cart, id = data['value_b'] ) #value_b is a user cart instance
+        
         try:
             Transaction.objects.create(
-                user = user ,
+                name = data['value_a'],
                 tran_id=data['tran_id'],
                 val_id=data['val_id'],
                 amount=data['amount'],
@@ -61,36 +59,20 @@ class CheckoutSuccessView(View):
                 risk_level=data['risk_level'],
 
             )
-        except:
             messages.success(request,'Payment Successfull')
 
-        #Redirect on this view because we have to delete the cart items total count
-            return redirect('billing:success')
+        except:
+            messages.success(request,'Something Went Wrong')
+        return render(request, 'success.html')
 
-        old_user, new_user = EnrollCouese.objects.get_or_create(user = user)
- 
-        if old_user:
-            for item in cart.products.all():
-                old_user.products.add(item)
-                
-        elif new_user:
-            for item in cart.products.all():
-                new_user.products.add(item)
-        
-        #delete the individual cart
-        cart = cart.delete()
-        messages.success(request,'Payment Successfull')
-
-        #Redirect on this view because we have to delete the cart items total count
-        return redirect('billing:success')
 
 @method_decorator(csrf_exempt, name='dispatch')
 class CheckoutFaildView(View):
-    template_name = 'mainsite/carts/checkout-faild.html'
+    template_name = 'faild.html'
 
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
 
     def post(self, request, *args, **kwargs):
-        return redirect('billing:faild')
+        return render(request, self.template_name)

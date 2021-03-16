@@ -16,7 +16,7 @@ def unique_trangection_id_generator(size=10, chars=string.ascii_uppercase + stri
 
     
 
-def sslcommerz_payment_gateway(request, amount):
+def sslcommerz_payment_gateway(request, name, amount):
  
     gateway_auth_details = PaymentGatewaySettings.objects.all().first()
 
@@ -34,7 +34,7 @@ def sslcommerz_payment_gateway(request, amount):
     post_body['fail_url'] = 'http://127.0.0.1:8000/payment/faild/'
     post_body['cancel_url'] = 'http://127.0.0.1:8000/carts/'
     post_body['emi_option'] = 0
-    post_body['cus_name'] = 'request.data["full_name"]'
+    post_body['cus_name'] = name
     post_body['cus_email'] = 'request.data["email"]'
     post_body['cus_phone'] = 'request.data["phone"]'
     post_body['cus_add1'] = 'request.data["address"]'
@@ -48,8 +48,7 @@ def sslcommerz_payment_gateway(request, amount):
     post_body['product_profile'] = "general"
 
     # OPTIONAL PARAMETERS
-    # post_body['value_a'] = user.id
-    # post_body['value_b'] = cart.id
+    post_body['value_a'] = name
 
 
 
