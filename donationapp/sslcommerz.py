@@ -8,10 +8,6 @@ from .models import PaymentGatewaySettings
 
 
 def unique_trangection_id_generator(size=10, chars=string.ascii_uppercase + string.digits):
-    """
-    This is for a Django project and it assumes your instance 
-    has a model with a slug field and a title character (char) field.
-    """
     return ''.join(random.choice(chars) for _ in range(size))
 
     
@@ -19,9 +15,6 @@ def unique_trangection_id_generator(size=10, chars=string.ascii_uppercase + stri
 def sslcommerz_payment_gateway(request, name, amount):
  
     gateway_auth_details = PaymentGatewaySettings.objects.all().first()
-
-
-
     settings = {'store_id': gateway_auth_details.store_id,
             'store_pass': gateway_auth_details.store_pass, 'issandbox': True} 
             
@@ -49,8 +42,6 @@ def sslcommerz_payment_gateway(request, name, amount):
 
     # OPTIONAL PARAMETERS
     post_body['value_a'] = name
-
-
 
     response = sslcommez.createSession(post_body)
     return 'https://sandbox.sslcommerz.com/gwprocess/v4/gw.php?Q=pay&SESSIONKEY=' + response["sessionkey"]
