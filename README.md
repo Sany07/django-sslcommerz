@@ -40,11 +40,11 @@ python manage.py runserver
 
 
 
-![Settings Window](https://raw.githubusercontent.com/Sany07/django-sslcommerz/blob/master/screenshots/1.png)
+![Settings Window](https://raw.githubusercontent.com/Sany07/django-sslcommerz/master/screenshots/1.png | width=800)
 
-![Settings Window](https://raw.githubusercontent.com/Sany07/django-sslcommerz/master/screenshots/2.png)
+![Settings Window](https://raw.githubusercontent.com/Sany07/django-sslcommerz/master/screenshots/2.png | width=800)
 
-![Settings Window](https://raw.githubusercontent.com/Sany07/django-sslcommerz/blob/master/screenshots/3.png)
+![Settings Window](https://raw.githubusercontent.com/Sany07/django-sslcommerz/master/screenshots/3.png | width=800)
 
 
 <div align="center">
