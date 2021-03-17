@@ -38,15 +38,17 @@ python manage.py runserver
 
 ## Add your sslcommerz Store Id and Store Password from Django Admin
 
+```
+```
+
 <div align="center"> 
    
-    <img src="https://raw.githubusercontent.com/Sany07/django-sslcommerz/master/screenshots/1.png" width="800">
+ <img src="https://raw.githubusercontent.com/Sany07/django-sslcommerz/master/screenshots/1.png" width="800">
 
-    <img src="https://raw.githubusercontent.com/Sany07/django-sslcommerz/master/screenshots/2.png" width="800">
+ <img src="https://raw.githubusercontent.com/Sany07/django-sslcommerz/master/screenshots/2.png" width="800">
 
-    <img src="https://raw.githubusercontent.com/Sany07/django-sslcommerz/master/screenshots/3.png" width="800">
-
-
-    <h3>========Thank You=========</h3>
+ <img src="https://raw.githubusercontent.com/Sany07/django-sslcommerz/master/screenshots/3.png" width="800">
+ 
+ <h3>========Thank You=========</h3>
 </div>
 
