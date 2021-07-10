@@ -44,7 +44,7 @@ python manage.py runserver
 
 <div align="center"> 
    
- <img src="https://github.com/Sany07/Video-Course-Selling-Platform-Django/blob/master/sc/1.png" width="200">
+ <img src="https://github.com/Sany07/Video-Course-Selling-Platform-Django/blob/master/sc/1.png" width="200"> <br>
  <img src="https://github.com/Sany07/Video-Course-Selling-Platform-Django/blob/master/sc/2.png" width="200">
  <img src="https://github.com/Sany07/Video-Course-Selling-Platform-Django/blob/master/sc/3.png" width="200">
  <img src="https://github.com/Sany07/Video-Course-Selling-Platform-Django/blob/master/sc/4.png" width="200">
