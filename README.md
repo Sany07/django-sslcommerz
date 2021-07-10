@@ -72,11 +72,10 @@ python manage.py runserver
    
  <img src="https://github.com/Sany07/Video-Course-Selling-Platform-Django/blob/master/sc/14.png" width="400"> <br>
    
- <img src="https://github.com/Sany07/Video-Course-Selling-Platform-Django/blob/master/sc/15.png" width="400"> <br> 
+ <img src="https://github.com/Sany07/Video-Course-Selling-Platform-Django/blob/master/sc/15.png" width="800"> <br> 
    
- <img src="https://github.com/Sany07/Video-Course-Selling-Platform-Django/blob/master/sc/16.png" width="400"> <br> 
    
- <img src="https://github.com/Sany07/Video-Course-Selling-Platform-Django/blob/master/sc/17.png" width="400"> <br> 
+ <img src="https://github.com/Sany07/Video-Course-Selling-Platform-Django/blob/master/sc/17.png" width="800"> <br> 
   
  
    
